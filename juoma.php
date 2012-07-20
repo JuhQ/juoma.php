@@ -21,6 +21,15 @@ $players = array("Juha", "Pekka", "Timo", "Liisa", "Maija");
 // list drinks here
 $drinks = array("Beer", "Koskenkorva", "Whiskey", "Milk");
 
-foreach($players AS $player) {
-	echo $player . " rolls " . mt_rand(0,100) . " for drink " . $drinks[mt_rand(0, count($drinks)-1)] . "\n";
-} 
+$winnerStr = "";
+$winner = 0;
+foreach ($players AS $player) {
+	$roll = mt_rand(0, 100);
+	echo $string = $player . " rolls " . $roll . " for drink " . $drinks[mt_rand(0, count($drinks) - 1)] . "\n";
+	if ($roll > $winner) {
+		$winner = $roll;
+		$winnerStr = $string;
+	}
+}
+
+echo "WINNER: " . $winnerStr;
